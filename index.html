@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Лилия Абдулова — Интеллект-тренер | Super Jump</title>
+  <meta name="description" content="Лилия Абдулова — интеллект-тренер международного проекта Super Jump (основатель Владимир Довгань). Прокачка памяти, мышления, скорочтение, рост дохода и уверенности." />
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body { font-family: 'Georgia', 'Times New Roman', serif; background: #0d0d0d; color: #f0e6c8; line-height: 1.7; overflow-x: hidden; max-width: 100vw; }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    :root {
+      --gold: #f5c518;
+      --gold-light: #fde96d;
+      --gold-pale: #2a2000;
+      --gold-warm: #f9a825;
+      --gold-deep: #e6a800;
+      --dark: #0d0d0d;
+      --dark-2: #141414;
+      --dark-3: #1a1a1a;
+      --dark-4: #222222;
+      --dark-5: #2a2a2a;
+      --text-bright: #f5e6c0;
+      --text-mid: #c8b080;
+      --text-light: #8b7d55;
+      --shadow-sm: 0 4px 16px rgba(245,197,24,0.08);
+      --shadow-md: 0 10px 40px rgba(245,197,24,0.14);
+      --shadow-lg: 0 24px 80px rgba(245,197,24,0.18);
+      --shadow-gold: 0 0 40px rgba(245,197,24,0.25);
+      --radius: 20px;
+      --radius-sm: 12px;
+    }
+    h1, h2, h3, h4, h5 { font-family: 'Georgia', serif; line-height: 1.25; font-weight: normal; }
+    .section-label { font-family: 'Arial', sans-serif; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold-warm); display: block; margin-bottom: 0.6rem; }
+
+    /* NAVBAR */
+    .navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(13,13,13,0.92); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); border-bottom: 1px solid rgba(245,197,24,0.15); padding: 0 2rem; height: 72px; display: flex; align-items: center; justify-content: space-between; transition: all 0.3s ease; }
+    .navbar.scrolled { box-shadow: 0 4px 30px rgba(245,197,24,0.1); height: 64px; background: rgba(13,13,13,0.97); }
+    .nav-brand { font-size: 1.1rem; font-weight: bold; color: var(--gold-light); display: flex; align-items: center; gap: 0.6rem; }
+    .nav-brand span { color: var(--text-mid); font-weight: normal; font-size: 0.85rem; }
+    .nav-links { display: flex; gap: 1.8rem; list-style: none; align-items: center; }
+    .nav-links a { font-family: 'Arial', sans-serif; font-size: 0.85rem; color: var(--text-mid); transition: all 0.2s ease; font-weight: 600; position: relative; padding: 0.4rem 0; letter-spacing: 0.03em; }
+    .nav-links a::after { content: ''; position: absolute; bottom: 0; left: 50%; width: 0; height: 2px; background: linear-gradient(90deg, var(--gold), var(--gold-warm)); transition: all 0.25s ease; transform: translateX(-50%); }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-links a:hover { color: var(--gold-light); }
+    .nav-cta { background: linear-gradient(135deg, var(--gold) 0%, var(--gold-warm) 100%); color: #1a0f00 !important; padding: 0.5rem 1.4rem !important; border-radius: 24px; font-weight: 700 !important; box-shadow: 0 4px 16px rgba(245,197,24,0.3); border: none !important; transition: all 0.25s; }
+    .nav-cta::after { display: none !important; }
+    .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(245,197,24,0.5); }
+    .hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 8px; z-index: 1001; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--gold-light); border-radius: 2px; transition: all 0.3s ease; }
+    .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+    .hamburger.active span:nth-child(2) { opacity: 0; }
+    .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+    .mobile-menu { display: none; position: fixed; top: 0; bottom: 0; left: 0; right: 0; background: rgba(13,13,13,0.98); backdrop-filter: blur(20px); padding: 90px 2rem 2rem; z-index: 999; flex-direction: column; gap: 1.2rem; transform: translateX(100%); transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+    .mobile-menu.open { display: flex; transform: translateX(0); }
+    .mobile-menu a { font-family: 'Arial', sans-serif; font-size: 1.1rem; color: var(--text-mid); padding: 0.9rem 0; border-bottom: 1px solid rgba(245,197,24,0.1); font-weight: 600; text-align: center; transition: color 0.2s; }
+    .mobile-menu a:hover { color: var(--gold-light); }
+
+    /* SECTIONS */
+    section { padding: 100px 0; position: relative; }
+    .container { max-width: 1140px; margin: 0 auto; padding: 0 1.5rem; }
+    .section-head { text-align: center; margin-bottom: 4rem; }
+    .section-head h2 { font-size: clamp(2rem, 4.5vw, 3rem); color: var(--text-bright); margin-bottom: 1rem; font-weight: normal; }
+    .section-head p { font-size: 1.1rem; color: var(--text-mid); max-width: 650px; margin: 0 auto; line-height: 1.7; }
+
+    /* HERO */
+    .hero { min-height: 100vh; display: flex; align-items: center; position: relative; overflow: hidden; padding-top: 80px; background: linear-gradient(145deg, #0d0d0d 0%, #111008 45%, #0d0d0d 100%); }
+    .hero::before { content: ''; position: absolute; top: -100px; right: -100px; width: 700px; height: 700px; background: radial-gradient(circle, rgba(245,197,24,0.12) 0%, transparent 70%); border-radius: 50%; pointer-events: none; }
+    .hero::after { content: ''; position: absolute; bottom: -200px; left: -100px; width: 600px; height: 600px; background: radial-gradient(circle, rgba(249,168,37,0.07) 0%, transparent 70%); border-radius: 50%; pointer-events: none; }
+    .hero-inner { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 4rem; align-items: center; position: relative; z-index: 2; }
+    .hero-badge { display: inline-flex; align-items: center; gap: 0.6rem; background: linear-gradient(135deg, rgba(245,197,24,0.15), rgba(249,168,37,0.08)); border: 1px solid rgba(245,197,24,0.35); color: var(--gold-light); font-family: 'Arial', sans-serif; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.45rem 1.2rem; border-radius: 50px; margin-bottom: 1.8rem; box-shadow: 0 2px 12px rgba(245,197,24,0.08); }
+    .hero h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); color: var(--text-bright); margin-bottom: 0.8rem; line-height: 1.12; }
+    .hero h1 .name-highlight { background: linear-gradient(135deg, var(--gold) 0%, var(--gold-warm) 60%, #ff9500 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-weight: bold; }
+    .hero-subtitle { font-size: clamp(1.1rem, 2.5vw, 1.45rem); color: var(--text-mid); margin-bottom: 1.5rem; line-height: 1.6; }
+    .hero-tagline { font-family: 'Arial', sans-serif; font-size: 1rem; color: var(--gold-warm); margin-bottom: 3rem; display: flex; align-items: center; gap: 0.8rem; font-weight: 600; font-style: italic; }
+    .hero-tagline::before { content: ''; display: inline-block; width: 40px; height: 2px; background: linear-gradient(90deg, var(--gold), transparent); }
+    .hero-cta { display: flex; flex-wrap: wrap; gap: 1rem; }
+
+    /* Buttons */
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem; padding: 0.9rem 2rem; border-radius: 50px; font-family: 'Arial', sans-serif; font-size: 0.95rem; font-weight: 700; cursor: pointer; border: none; transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1); text-decoration: none; white-space: nowrap; }
+    .btn-primary { background: linear-gradient(135deg, var(--gold) 0%, var(--gold-warm) 100%); color: #1a0f00; box-shadow: 0 6px 24px rgba(245,197,24,0.35), 0 2px 6px rgba(0,0,0,0.3); }
+    .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 12px 36px rgba(245,197,24,0.55), 0 2px 8px rgba(0,0,0,0.3); }
+    .btn-outline { background: transparent; color: var(--gold-light); border: 2px solid rgba(245,197,24,0.5); }
+    .btn-outline:hover { background: rgba(245,197,24,0.08); transform: translateY(-3px); border-color: var(--gold); box-shadow: 0 6px 24px rgba(245,197,24,0.15); }
+    .btn-ghost { background: rgba(255,255,255,0.04); color: var(--text-bright); border: 1px solid rgba(245,197,24,0.2); backdrop-filter: blur(8px); }
+    .btn-ghost:hover { background: rgba(245,197,24,0.08); transform: translateY(-3px); border-color: rgba(245,197,24,0.4); }
+    .btn-tg { background: #2AABEE; color: #fff !important; font-weight: 700; box-shadow: 0 6px 20px rgba(42,171,238,0.3); }
+    .btn-tg:hover { transform: translateY(-3px); box-shadow: 0 10px 28px rgba(42,171,238,0.5); background: #229ed9; }
+    .btn-dark { background: var(--dark-4); color: var(--text-bright); border: 1px solid rgba(245,197,24,0.2); }
+    .btn-dark:hover { background: var(--dark-5); transform: translateY(-3px); box-shadow: var(--shadow-md); }
+
+    /* Hero image */
+    .hero-image-wrap { position: relative; display: flex; justify-content: center; }
+    .hero-image-frame { position: relative; border-radius: 50px 50px 140px 50px; overflow: hidden; box-shadow: var(--shadow-lg), 0 0 60px rgba(245,197,24,0.12); max-width: 400px; width: 100%; aspect-ratio: 3/4; background: linear-gradient(135deg, #1a1200, #2a1f00); border: 2px solid rgba(245,197,24,0.25); }
+    .hero-image-frame img { width: 100%; height: 100%; object-fit: cover; object-position: center top; transition: transform 0.6s ease; }
+    .hero-image-frame:hover img { transform: scale(1.04); }
+    .hero-decor-dot { position: absolute; bottom: 30px; left: -25px; width: 58px; height: 58px; background: linear-gradient(135deg, var(--gold) 0%, var(--gold-warm) 100%); border-radius: 50%; box-shadow: 0 6px 24px rgba(245,197,24,0.5); display: flex; align-items: center; justify-content: center; font-size: 1.8rem; z-index: 5; }
+    .hero-stat-card { position: absolute; background: var(--dark-3); border-radius: 16px; padding: 0.9rem 1.3rem; box-shadow: var(--shadow-md), 0 0 0 1px rgba(245,197,24,0.15); display: flex; align-items: center; gap: 0.8rem; font-family: 'Arial', sans-serif; transition: all 0.3s; z-index: 4; }
+    .hero-stat-card:hover { transform: scale(1.05) translateY(-2px); box-shadow: var(--shadow-lg); }
+    .hero-stat-card.top-left { top: 20px; left: -60px; }
+    .hero-stat-card.bottom-right { bottom: 60px; right: -50px; }
+    .stat-icon { font-size: 1.6rem; }
+    .stat-text strong { display: block; font-size: 0.95rem; color: var(--text-bright); font-weight: 700; }
+    .stat-text span { color: var(--text-light); font-size: 0.72rem; font-weight: 500; }
+
+    /* DIVIDER */
+    .divider { text-align: center; padding: 2rem 0; position: relative; z-index: 3; }
+    .divider-line { display: flex; align-items: center; justify-content: center; gap: 1.2rem; }
+    .divider-line::before, .divider-line::after { content: ''; flex: 1; height: 1px; background: linear-gradient(90deg, transparent, rgba(245,197,24,0.4), transparent); }
+    @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.2); } }
+    .divider-flower { font-size: 1.6rem; animation: pulse 3s infinite ease-in-out; }
+    @keyframes sfSway { 0%, 100% { transform: rotate(-10deg) scale(1); } 50% { transform: rotate(10deg) scale(1.08); } }
+    @keyframes sfGlow { 0%, 100% { filter: drop-shadow(0 0 8px rgba(245,197,24,0.7)); } 50% { filter: drop-shadow(0 0 20px rgba(245,197,24,1)); } }
+    .sun-divider { text-align: center; padding: 1.5rem 0; }
+    .sun-divider-line { display: flex; align-items: center; justify-content: center; gap: 1.5rem; }
+    .sun-divider-line::before, .sun-divider-line::after { content: ''; flex: 1; height: 1px; background: linear-gradient(90deg, transparent, rgba(245,197,24,0.4), transparent); }
+    .sun-flower-big { font-size: 3rem; display: inline-block; animation: sfSway 3s ease-in-out infinite, sfGlow 3s ease-in-out infinite; transform-origin: center bottom; }
+
+    /* SUPER JUMP SECTION */
+    .sj-section { background: var(--dark-2); }
+    .sj-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+    @media (min-width: 900px) { .sj-grid { grid-template-columns: repeat(4, 1fr); } }
+    .sj-card { background: var(--dark-3); border-radius: 20px; padding: 2rem 1.5rem; border: 1px solid rgba(245,197,24,0.12); transition: all 0.3s cubic-bezier(0.16,1,0.3,1); position: relative; overflow: hidden; }
+    .sj-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--gold), var(--gold-warm)); opacity: 0; transition: opacity 0.3s; }
+    .sj-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); border-color: rgba(245,197,24,0.3); }
+    .sj-card:hover::before { opacity: 1; }
+    .sj-icon { font-size: 2.4rem; margin-bottom: 1rem; }
+    .sj-card h3 { font-size: 1.1rem; color: var(--text-bright); margin-bottom: 0.5rem; font-family: 'Arial', sans-serif; font-weight: 700; }
+    .sj-card p { font-size: 0.9rem; color: var(--text-mid); line-height: 1.6; font-family: 'Arial', sans-serif; }
+
+    /* BENEFITS / WHAT YOU GET */
+    .benefits-section { background: var(--dark); }
+    .benefits-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; }
+    .benefit-card { background: var(--dark-3); border-radius: 22px; padding: 2rem; border: 1px solid rgba(245,197,24,0.1); transition: all 0.3s cubic-bezier(0.16,1,0.3,1); position: relative; overflow: hidden; }
+    .benefit-card::before { content: ''; position: absolute; top: 0; left: 0; width: 5px; height: 100%; background: linear-gradient(180deg, var(--gold), var(--gold-warm)); opacity: 0; transition: opacity 0.3s; }
+    .benefit-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); border-color: rgba(245,197,24,0.25); }
+    .benefit-card:hover::before { opacity: 1; }
+    .benefit-num { display: inline-block; background: linear-gradient(135deg, var(--gold), var(--gold-warm)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-family: 'Georgia', serif; font-size: 2.5rem; font-weight: bold; margin-bottom: 0.7rem; line-height: 1; }
+    .benefit-card h3 { font-size: 1.3rem; color: var(--text-bright); margin-bottom: 0.8rem; font-family: 'Arial', sans-serif; font-weight: 700; }
+    .benefit-card p { font-size: 1rem; color: var(--text-mid); line-height: 1.7; font-family: 'Arial', sans-serif; }
+
+    /* HOW IT WORKS */
+    .how-section { background: var(--dark-2); }
+    .steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2.5rem; margin-top: 3rem; }
+    .step-card { position: relative; text-align: center; }
+    .step-num { display: inline-block; background: linear-gradient(135deg, var(--gold), var(--gold-warm)); color: #1a0f00; font-family: 'Arial', sans-serif; font-size: 1.1rem; font-weight: 900; width: 56px; height: 56px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; box-shadow: 0 6px 20px rgba(245,197,24,0.3); }
+    .step-card h3 { font-size: 1.3rem; color: var(--text-bright); margin-bottom: 0.9rem; font-family: 'Arial', sans-serif; font-weight: 700; }
+    .step-card p { font-size: 1rem; color: var(--text-mid); line-height: 1.7; max-width: 320px; margin: 0 auto; }
+
+    /* FOUNDER */
+    .founder-section { background: var(--dark); }
+    .founder-grid { display: grid; grid-template-columns: 280px 1fr; gap: 3rem; align-items: start; }
+    .founder-avatar { width: 100%; aspect-ratio: 1; border-radius: 50%; background: linear-gradient(135deg, #1a1200, #2a1f00); border: 3px solid rgba(245,197,24,0.3); box-shadow: var(--shadow-lg), 0 0 50px rgba(245,197,24,0.15); display: flex; align-items: center; justify-content: center; font-size: 8rem; }
+    .founder-content h3 { font-size: 1.8rem; color: var(--text-bright); margin-bottom: 1rem; font-family: 'Arial', sans-serif; font-weight: 700; }
+    .founder-content p { font-size: 1.05rem; color: var(--text-mid); line-height: 1.8; margin-bottom: 1.2rem; }
+    .founder-quote { font-family: 'Georgia', serif; font-size: 1.2rem; color: var(--gold-light); font-style: italic; padding: 1.5rem 2rem; background: rgba(245,197,24,0.05); border-left: 4px solid var(--gold); border-radius: 12px; margin: 1.5rem 0; line-height: 1.8; }
+    .founder-tags { display: flex; flex-wrap: wrap; gap: 0.8rem; margin-top: 1.5rem; }
+    .founder-tag { font-family: 'Arial', sans-serif; font-size: 0.8rem; font-weight: 700; background: rgba(245,197,24,0.1); color: var(--gold-warm); padding: 0.4rem 1rem; border-radius: 20px; border: 1px solid rgba(245,197,24,0.2); }
+
+    /* ABOUT TRAINER */
+    .trainer-section { background: var(--dark-2); }
+    .trainer-grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 3rem; align-items: center; }
+    .trainer-image-wrap { position: relative; display: flex; justify-content: center; }
+    .trainer-image-frame { position: relative; border-radius: 30px; overflow: hidden; box-shadow: var(--shadow-md), 0 0 40px rgba(245,197,24,0.1); max-width: 380px; width: 100%; aspect-ratio: 3/4; background: linear-gradient(135deg, #1a1200, #2a1f00); border: 2px solid rgba(245,197,24,0.2); }
+    .trainer-image-frame img { width: 100%; height: 100%; object-fit: cover; object-position: center top; transition: transform 0.4s ease; }
+    .trainer-image-frame:hover img { transform: scale(1.03); }
+    .trainer-decor { position: absolute; bottom: 20px; left: -30px; background: linear-gradient(135deg, var(--gold), var(--gold-warm)); color: #1a0f00; font-family: 'Arial', sans-serif; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.7rem 1.2rem; border-radius: 30px; box-shadow: 0 6px 20px rgba(245,197,24,0.4); z-index: 5; }
+    .trainer-content h3 { font-size: 1.8rem; color: var(--text-bright); margin-bottom: 1.5rem; font-family: 'Arial', sans-serif; font-weight: 700; }
+    .trainer-content p { font-size: 1.05rem; color: var(--text-mid); line-height: 1.8; margin-bottom: 1.2rem; }
+    .placeholder-box { background: var(--dark-4); border: 2px dashed rgba(245,197,24,0.3); border-radius: 20px; padding: 2rem; display: flex; align-items: center; gap: 1.5rem; margin: 1.5rem 0; }
+    .placeholder-icon { font-size: 3rem; }
+
+    /* REVIEWS */
+    .reviews-section { background: var(--dark); }
+    .reviews-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.8rem; }
+    .review-card { background: var(--dark-3); border-radius: 20px; padding: 2rem; border: 1px solid rgba(245,197,24,0.1); transition: all 0.3s cubic-bezier(0.16,1,0.3,1); position: relative; overflow: hidden; }
+    .review-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--gold), var(--gold-warm)); opacity: 0; transition: opacity 0.3s; }
+    .review-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); border-color: rgba(245,197,24,0.25); }
+    .review-card:hover::before { opacity: 1; }
+    .review-stars { display: flex; gap: 0.3rem; margin-bottom: 1rem; }
+    .review-stars span { color: var(--gold); font-size: 1.3rem; }
+    .review-text { font-family: 'Georgia', serif; font-size: 1rem; color: var(--text-mid); line-height: 1.8; margin-bottom: 1.5rem; font-style: italic; }
+    .review-author { display: flex; align-items: center; gap: 1rem; }
+    .review-avatar { width: 50px; height: 50px; background: linear-gradient(135deg, var(--gold), var(--gold-warm)); color: #1a0f00; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Arial', sans-serif; font-size: 1.3rem; font-weight: 900; box-shadow: 0 4px 12px rgba(245,197,24,0.3); }
+    .review-name strong { display: block; font-family: 'Arial', sans-serif; font-size: 1rem; color: var(--text-bright); font-weight: 700; margin-bottom: 0.2rem; }
+    .review-name span { font-family: 'Arial', sans-serif; font-size: 0.8rem; color: var(--text-light); }
+
+    /* CTA SECTION */
+    .cta-section { background: var(--dark-2); text-align: center; position: relative; padding: 120px 0; overflow: hidden; }
+    .cta-glow { position: absolute; top: 50%; left: 50%; width: 800px; height: 800px; background: radial-gradient(circle, rgba(245,197,24,0.08) 0%, transparent 70%); border-radius: 50%; pointer-events: none; transform: translate(-50%, -50%); animation: pulse 8s ease-in-out infinite; }
+    .cta-section h2 { font-size: clamp(2.2rem, 5vw, 3.5rem); color: var(--text-bright); margin-bottom: 1.5rem; line-height: 1.2; }
+    .cta-section p { font-size: 1.15rem; color: var(--text-mid); max-width: 600px; margin: 0 auto 2.5rem; line-height: 1.8; }
+    .cta-buttons { display: flex; flex-wrap: wrap; justify-content: center; gap: 1.2rem; }
+    .glow-text { background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold-warm) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+    /* CONTACTS */
+    .contacts-section { background: var(--dark); }
+    .contact-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; max-width: 900px; margin: 0 auto; }
+    .contact-card { background: var(--dark-3); border-radius: 20px; padding: 2rem 1.5rem; text-align: center; border: 1px solid rgba(245,197,24,0.1); transition: all 0.3s cubic-bezier(0.16,1,0.3,1); display: block; position: relative; overflow: hidden; }
+    .contact-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: currentColor; opacity: 0; transition: opacity 0.3s; }
+    .contact-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); border-color: currentColor; }
+    .contact-card:hover::before { opacity: 1; }
+    .contact-card.tg { color: #2AABEE; }
+    .contact-card.wa { color: #25D366; }
+    .contact-card.vk { color: #4C75A3; }
+    .contact-card-icon { font-size: 3rem; margin-bottom: 1rem; }
+    .contact-card-title { font-family: 'Arial', sans-serif; font-size: 0.85rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-light); margin-bottom: 0.5rem; }
+    .contact-card-name { font-family: 'Arial', sans-serif; font-size: 1.1rem; font-weight: 700; color: var(--text-bright); }
+
+    /* FOOTER */
+    footer { background: var(--dark-3); border-top: 1px solid rgba(245,197,24,0.15); padding: 3rem 0 2rem; }
+    .footer-top { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 2rem; margin-bottom: 2rem; }
+    .footer-brand { font-family: 'Arial', sans-serif; font-size: 1.1rem; font-weight: 700; color: var(--gold-light); display: block; margin-bottom: 1rem; }
+    .footer-socials { display: flex; gap: 1rem; }
+    .footer-social-link { width: 42px; height: 42px; border-radius: 50%; background: var(--dark-4); color: var(--text-mid); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; transition: all 0.25s; border: 1px solid rgba(245,197,24,0.15); }
+    .footer-social-link:hover { transform: translateY(-3px); box-shadow: var(--shadow-sm); border-color: currentColor; }
+    .footer-social-link.tg { color: #2AABEE; }
+    .footer-social-link.wa { color: #25D366; }
+    .footer-social-link.vk { color: #4C75A3; }
+    .footer-copyright { font-family: 'Arial', sans-serif; font-size: 0.9rem; color: var(--text-light); text-align: right; }
+
+    /* BACK TO TOP */
+    .back-to-top { position: fixed; bottom: 2rem; right: 2rem; width: 52px; height: 52px; background: linear-gradient(135deg, var(--gold), var(--gold-warm)); color: #1a0f00; border: none; border-radius: 50%; font-size: 1.1rem; cursor: pointer; box-shadow: 0 6px 24px rgba(245,197,24,0.4); opacity: 0; transform: translateY(30px); transition: all 0.3s cubic-bezier(0.16,1,0.3,1); pointer-events: none; z-index: 999; }
+    .back-to-top.visible { opacity: 1; transform: translateY(0); pointer-events: all; }
+    .back-to-top:hover { transform: translateY(-4px); box-shadow: 0 10px 32px rgba(245,197,24,0.6); }
+
+    /* ANIMATIONS */
+    .animate-in { opacity: 0; transform: translateY(30px); transition: all 0.7s cubic-bezier(0.16,1,0.3,1); }
+    .animate-in.visible { opacity: 1; transform: translateY(0); }
+    .delay-1 { transition-delay: 0.15s; }
+    .delay-2 { transition-delay: 0.3s; }
+    .delay-3 { transition-delay: 0.45s; }
+
+    /* RESPONSIVE */
+    @media (max-width: 1024px) {
+      .hero-inner { grid-template-columns: 1fr; gap: 3rem; text-align: center; }
+      .hero-badge, .hero-tagline { justify-content: center; }
+      .hero-cta { justify-content: center; }
+      .hero-image-wrap { order: -1; }
+      .hero-stat-card.top-left { left: 0; top: -20px; }
+      .hero-stat-card.bottom-right { right: 0; bottom: -20px; }
+      .founder-grid { grid-template-columns: 1fr; gap: 2rem; text-align: center; }
+      .founder-avatar { margin: 0 auto; max-width: 200px; }
+      .trainer-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .trainer-image-wrap { order: -1; }
+    }
+
+    @media (max-width: 768px) {
+      .navbar { padding: 0 1rem; }
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      section { padding: 70px 0; }
+      .sj-grid { grid-template-columns: 1fr; }
+      .steps-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .benefits-grid { grid-template-columns: 1fr; }
+      .reviews-grid { grid-template-columns: 1fr; }
+      .contact-cards { grid-template-columns: 1fr; }
+      .footer-top { flex-direction: column; text-align: center; }
+      .footer-copyright { text-align: center; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar" id="navbar">
+    <div class="nav-brand">
+      ⚡Лилия Абдулова
+      <span>Интеллект-тренер · Super Jump</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#about">О проекте</a></li>
+      <li><a href="#benefits">Что получите</a></li>
+      <li><a href="#how">Как работает</a></li>
+      <li><a href="#founder">Основатель</a></li>
+      <li><a href="#reviews">Отзывы</a></li>
+      <li><a href="#cta" class="nav-cta">Записаться</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#about" onclick="closeMobileMenu()">О проекте</a>
+    <a href="#benefits" onclick="closeMobileMenu()">Что получите</a>
+    <a href="#how" onclick="closeMobileMenu()">Как работает</a>
+    <a href="#founder" onclick="closeMobileMenu()">Основатель</a>
+    <a href="#reviews" onclick="closeMobileMenu()">Отзывы</a>
+    <a href="#cta" onclick="closeMobileMenu()">Записаться</a>
+  </div>
+
+  <section class="hero" id="hero">
+    <div class="container">
+      <div class="hero-inner">
+        <div>
+          <span class="hero-badge">
+            ⚡ Международный проект · Super Jump
+          </span>
+          <h1>
+            <span class="name-highlight">Лилия Абдулова</span>
+          </h1>
+          <p class="hero-subtitle">
+            Интеллект-тренер проекта Super Jump
+            (основатель — Владимир Довгань)
+          </p>
+          <div class="hero-tagline">
+            Помогаю прокачать интеллект и выйти на новый доход
+          </div>
+          <div class="hero-cta">
+            <a href="#cta" class="btn btn-primary">
+              <i class="fa-solid fa-bolt"></i>
+              Записаться на бесплатную тренировку
+            </a>
+            <a href="#about" class="btn btn-outline">
+              <i class="fa-solid fa-circle-info"></i>
+              Узнать больше
+            </a>
+          </div>
+          <div style="margin-top:2rem;display:flex;flex-wrap:wrap;gap:1rem;justify-content:flex-start;">
+            <div style="background:rgba(245,197,24,0.08);border:1px solid rgba(245,197,24,0.2);border-radius:16px;padding:0.8rem 1.4rem;display:flex;align-items:center;gap:0.7rem;">
+              <span style="font-size:1.6rem;">🧠</span>
+              <div>
+                <strong style="color:var(--gold-warm);font-family:Arial,sans-serif;font-size:0.75rem;font-weight:700;display:block;">Память & Мышление</strong>
+                <span style="color:var(--text-light);font-family:Arial,sans-serif;font-size:0.72rem;">Прокачка с первого урока</span>
+              </div>
+            </div>
+            <div style="background:rgba(245,197,24,0.08);border:1px solid rgba(245,197,24,0.2);border-radius:16px;padding:0.8rem 1.4rem;display:flex;align-items:center;gap:0.7rem;">
+              <span style="font-size:1.6rem;">🆓</span>
+              <div>
+                <strong style="color:var(--gold-warm);font-family:Arial,sans-serif;font-size:0.75rem;font-weight:700;display:block;">1-й урок бесплатно</strong>
+                <span style="color:var(--text-light);font-family:Arial,sans-serif;font-size:0.72rem;">Диагностика интеллекта</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="hero-image-wrap">
+          <div class="hero-image-frame">
+            <img src="1.jpg" alt="Лилия Абдулова">
+          </div>
+          <div class="hero-decor-dot">⚡</div>
+          <div class="hero-stat-card top-left">
+            <span class="stat-icon">🌍</span>
+            <div class="stat-text">
+              <strong>Международный</strong>
+              <span>проект Super Jump</span>
+            </div>
+          </div>
+          <div class="hero-stat-card bottom-right">
+            <span class="stat-icon">🏆</span>
+            <div class="stat-text">
+              <strong>Тысячи учеников</strong>
+              <span>по всему миру</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"><div class="divider-line"><span class="divider-flower">✨</span></div></div>
+
+  <section class="sj-section" id="about">
+    <div class="container">
+      <div class="section-head animate-in">
+        <span class="section-label">О проекте</span>
+        <h2>Международный образовательный проект по развитию интеллекта, который меняет жизни тысяч людей по всему миру</h2>
+      </div>
+      <div class="sj-grid">
+        <div class="sj-card animate-in delay-1">
+          <div class="sj-icon">🧠</div>
+          <h3>Интеллект-тренировки</h3>
+          <p>Системная прокачка памяти, мышления и скорочтения. Методики, проверенные тысячами учеников по всему миру.</p>
+        </div>
+        <div class="sj-card animate-in delay-2">
+          <div class="sj-icon">🌐</div>
+          <h3>Онлайн-формат</h3>
+          <p>Занятия, наставничество и командная работа в онлайн — занимайтесь из любой точки мира в удобное время.</p>
+        </div>
+        <div class="sj-card animate-in delay-3">
+          <div class="sj-icon">🚀</div>
+          <h3>Рост и результат</h3>
+          <p>Рост дохода, уверенность в себе, новое окружение и стремительный личностный рост уже с первых занятий.</p>
+        </div>
+        <div class="sj-card animate-in">
+          <div class="sj-icon">🎓</div>
+          <h3>Основатель — Довгань</h3>
+          <p>Владимир Довгань — предприниматель, автор книг, мотиватор. Уникальный метод развития интеллекта, созданный им лично.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="sun-divider">
+    <div class="sun-divider-line">
+      <span class="sun-flower-big">⚡</span>
+    </div>
+  </div>
+
+  <section class="benefits-section" id="benefits">
+    <div class="container">
+      <div class="section-head animate-in">
+        <span class="section-label">Ваши результаты</span>
+        <h2>Что вы получите</h2>
+        <p>После занятий с Лилией Абдуловой ваша жизнь начнёт меняться — быстро, системно и навсегда</p>
+      </div>
+      <div class="benefits-grid">
+        <div class="benefit-card animate-in delay-1">
+          <span class="benefit-num">1</span>
+          <h3>Острая память и быстрое мышление</h3>
+          <p>Запоминайте больше, думайте быстрее. Вы удивитесь, на что способен ваш мозг после нескольких тренировок.</p>
+        </div>
+        <div class="benefit-card animate-in delay-2">
+          <span class="benefit-num">2</span>
+          <h3>Рост дохода и новые возможности</h3>
+          <p>Прокачанный интеллект — прямой путь к карьерному росту, бизнес-прорыву и новым источникам дохода.</p>
+        </div>
+        <div class="benefit-card animate-in delay-3">
+          <span class="benefit-num">3</span>
+          <h3>Уверенность и новый уровень</h3>
+          <p>Вы начнёте по-другому говорить, думать и действовать. Уверенность станет вашей естественной чертой.</p>
+        </div>
+        <div class="benefit-card animate-in">
+          <span class="benefit-num">4</span>
+          <h3>Скорочтение и концентрация</h3>
+          <p>Читайте книги в 3–5 раз быстрее, улавливайте главное, удерживайте фокус на задачах.</p>
+        </div>
+        <div class="benefit-card animate-in delay-1">
+          <span class="benefit-num">5</span>
+          <h3>Сильное окружение и наставники</h3>
+          <p>Войдите в команду людей, стремящихся к росту. Новые связи, партнёры и друзья-единомышленники.</p>
+        </div>
+        <div class="benefit-card animate-in delay-2">
+          <span class="benefit-num">6</span>
+          <h3>Личностный рост без остановок</h3>
+          <p>Система Super Jump даёт инструменты, которые работают всю жизнь — не одноразовый результат, а постоянный прогресс.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"><div class="divider-line"><span class="divider-flower">🔥</span></div></div>
+
+  <section class="how-section" id="how">
+    <div class="container">
+      <div class="section-head animate-in">
+        <span class="section-label">Путь к результату</span>
+        <h2>Как это работает</h2>
+        <p>Три простых шага от первого знакомства до реального изменения вашей жизни</p>
+      </div>
+      <div class="steps-grid">
+        <div class="step-card animate-in delay-1">
+          <div class="step-num">1</div>
+          <h3>Бесплатная тренировка</h3>
+          <p>Запишитесь на первый бесплатный урок. Лилия проведёт диагностику вашего интеллекта и покажет возможности методики лично для вас.</p>
+        </div>
+        <div class="step-card animate-in delay-2">
+          <div class="step-num">2</div>
+          <h3>Онлайн-занятия и практика</h3>
+          <p>Системные тренировки памяти, мышления и скорочтения в онлайн-формате. Наставничество, команда, поддержка на каждом шаге.</p>
+        </div>
+        <div class="step-card animate-in delay-3">
+          <div class="step-num">3</div>
+          <h3>Новая жизнь и доход</h3>
+          <p>Прокачанный интеллект открывает новые двери. Рост дохода, уверенность, сильное окружение — ваша реальность уже скоро.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="sun-divider">
+    <div class="sun-divider-line">
+      <span class="sun-flower-big">🌟</span>
+    </div>
+  </div>
+
+  <section class="founder-section" id="founder">
+    <div class="container">
+      <div class="section-head animate-in">
+        <span class="section-label">Идея и методика</span>
+        <h2>Об основателе проекта</h2>
+      </div>
+      <div class="founder-grid">
+        <div class="founder-avatar animate-in delay-1">
+          <span>👤</span>
+        </div>
+        <div class="founder-content animate-in delay-2">
+          <h3>Владимир Довгань</h3>
+          <p>Легендарный российский предприниматель, автор более 70 книг по саморазвитию и успеху, мотивационный оратор и создатель уникальной методики развития интеллекта.</p>
+          <div class="founder-quote">
+            «Каждый человек рождён гением. Задача — пробудить этот потенциал через ежедневные тренировки ума.»
+          </div>
+          <p>Основатель международного проекта Super Jump, который уже помог тысячам людей по всему миру прокачать интеллект, выйти на новый доход и обрести уверенность в себе.</p>
+          <div class="founder-tags">
+            <span class="founder-tag">Предприниматель</span>
+            <span class="founder-tag">Автор 70+ книг</span>
+            <span class="founder-tag">Мотиватор</span>
+            <span class="founder-tag">Основатель Super Jump</span>
+            <span class="founder-tag">Международный спикер</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"><div class="divider-line"><span class="divider-flower">✨</span></div></div>
+
+  <section class="trainer-section" id="trainer">
+    <div class="container">
+      <div class="section-head animate-in">
+        <span class="section-label">Ваш тренер</span>
+        <h2>Обо мне — Лилия Абдулова</h2>
+      </div>
+      <div class="trainer-grid">
+        <div class="trainer-image-wrap animate-in delay-1">
+          <div class="trainer-image-frame">
+            <img src="1.jpg" alt="Лилия Абдулова">
+          </div>
+          <div class="trainer-decor">
+            <span style="margin-right:0.3rem;">⚡</span> Интеллект-тренер<br/>Super Jump
+          </div>
+        </div>
+        <div class="trainer-content animate-in delay-2">
+          <h3>Расскажу о себе<br/>на нашей встрече</h3>
+          <p>
+            Каждая история уникальна. На первой бесплатной встрече я расскажу вам о своём пути, почему выбрала Super Jump и как эта методика изменила мою жизнь.
+          </p>
+          <div class="placeholder-box">
+            <div class="placeholder-icon">💬</div>
+            <p style="color:var(--text-mid);font-family:Arial,sans-serif;font-size:1rem;line-height:1.7;">
+              <strong style="color:var(--gold-warm);display:block;margin-bottom:0.5rem;">Запишитесь на бесплатную тренировку</strong>
+              Познакомимся, я проведу диагностику вашего интеллекта, покажу методику и отвечу на все вопросы. Без давления, без обязательств — только польза.
+            </p>
+          </div>
+          <div style="margin-top:2rem;">
+            <a href="#cta" class="btn btn-primary">
+              <i class="fa-solid fa-calendar-check"></i>
+              Записаться и познакомиться
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="sun-divider">
+    <div class="sun-divider-line">
+      <span class="sun-flower-big">⭐</span>
+    </div>
+  </div>
+
+  <section class="reviews-section" id="reviews">
+    <div class="container">
+      <div class="section-head animate-in">
+        <span class="section-label">Истории успеха</span>
+        <h2>Отзывы учеников</h2>
+        <p>Реальные люди, реальные результаты — тысячи историй трансформации по всему миру</p>
+      </div>
+      <div class="reviews-grid">
+        <div class="review-card animate-in delay-1">
+          <div class="review-stars">
+            <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+          </div>
+          <div class="review-text">
+            «После первого же урока с Лилией я почувствовал, как начинает работать голова по-новому. За месяц тренировок мой доход вырос на 40% — я стал думать быстрее, принимать решения увереннее.»
+          </div>
+          <div class="review-author">
+            <div class="review-avatar">А</div>
+            <div class="review-name">
+              <strong>Алексей М.</strong>
+              <span>Предприниматель · Москва</span>
+            </div>
+          </div>
+        </div>
+        <div class="review-card animate-in delay-2">
+          <div class="review-stars">
+            <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+          </div>
+          <div class="review-text">
+            «Скорочтение — это вообще что-то невероятное! Раньше читала одну книгу месяц, теперь — три в неделю. Но главное — качество жизни изменилось: я стала спокойнее, увереннее, целеустремлённее.»
+          </div>
+          <div class="review-author">
+            <div class="review-avatar">Е</div>
+            <div class="review-name">
+              <strong>Елена С.</strong>
+              <span>Менеджер · Санкт-Петербург</span>
+            </div>
+          </div>
+        </div>
+        <div class="review-card animate-in delay-3">
+          <div class="review-stars">
+            <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+          </div>
+          <div class="review-text">
+            «Лилия — потрясающий тренер. Объясняет просто, поддерживает, ведёт к результату. Три месяца в Super Jump — и я не узнаю себя. Новые клиенты, новый доход, новое окружение. Рекомендую всем!»
+          </div>
+          <div class="review-author">
+            <div class="review-avatar">Д</div>
+            <div class="review-name">
+              <strong>Дмитрий К.</strong>
+              <span>Фрилансер · Казань</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"><div class="divider-line"><span class="divider-flower">💫</span></div></div>
+
+  <section class="cta-section" id="cta">
+    <div class="cta-glow"></div>
+    <div class="container" style="position:relative;z-index:1;">
+      <div class="animate-in">
+        <span class="section-label" style="text-align:center;display:block;margin-bottom:1rem;">Ваш старт — сегодня</span>
+        <h2 class="glow-text" style="margin-bottom:1.2rem;">Запишитесь на<br/>бесплатную тренировку</h2>
+        <p>Первый шаг к новому интеллекту, доходу и уверенности — это один клик. Лилия Абдулова лично проведёт диагностику и покажет ваш потенциал.</p>
+      </div>
+      <div class="cta-buttons animate-in delay-1">
+        <a href="#" class="btn btn-primary" style="padding:1.1rem 2.5rem;font-size:1.05rem;">
+          <i class="fa-solid fa-bolt"></i>
+          Записаться на бесплатную тренировку
+        </a>
+        <a href="#" class="btn btn-tg" style="padding:1.1rem 2rem;font-size:1rem;">
+          <i class="fa-brands fa-telegram"></i>
+          Написать в Telegram
+        </a>
+      </div>
+      <div style="margin:3rem auto 0;max-width:300px;height:1px;background:linear-gradient(90deg,transparent,rgba(245,197,24,0.4),transparent);"></div>
+      <p class="animate-in delay-2" style="margin-top:2rem;font-family:Arial,sans-serif;font-size:0.9rem;color:var(--text-light);">
+        Бесплатно · Без обязательств · Онлайн · Первый урок — уже сегодня
+      </p>
+    </div>
+  </section>
+
+  <section class="contacts-section" id="contacts">
+    <div class="container">
+      <div class="section-head animate-in">
+        <span class="section-label">Связаться</span>
+        <h2>Официальные контакты</h2>
+        <p>Выберите удобный способ связи — отвечаю быстро и с удовольствием</p>
+      </div>
+      <div class="contact-cards animate-in delay-1">
+        <a href="#" class="contact-card tg">
+          <div class="contact-card-icon"><i class="fa-brands fa-telegram"></i></div>
+          <div class="contact-card-title">Telegram</div>
+          <div class="contact-card-name">@liliya_abdulova</div>
+        </a>
+        <a href="#" class="contact-card wa">
+          <div class="contact-card-icon"><i class="fa-brands fa-whatsapp"></i></div>
+          <div class="contact-card-title">WhatsApp</div>
+          <div class="contact-card-name">Написать сейчас</div>
+        </a>
+        <a href="#" class="contact-card vk">
+          <div class="contact-card-icon"><i class="fa-brands fa-vk"></i></div>
+          <div class="contact-card-title">ВКонтакте</div>
+          <div class="contact-card-name">vk.com/liliya_abdulova</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <span class="footer-brand">⚡ Лилия Абдулова · Super Jump</span>
+          <div class="footer-socials">
+            <a href="#" class="footer-social-link tg" title="Telegram"><i class="fa-brands fa-telegram"></i></a>
+            <a href="#" class="footer-social-link wa" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="#" class="footer-social-link vk" title="ВКонтакте"><i class="fa-brands fa-vk"></i></a>
+          </div>
+        </div>
+        <div class="footer-copyright">
+          © 2026 <strong>Лилия Абдулова</strong> — Интеллект-тренер Super Jump<br/>
+          <span style="font-size:0.8rem;">Международный образовательный проект · Основатель Владимир Довгань</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <button class="back-to-top" id="backToTop" aria-label="Наверх">
+    <i class="fa-solid fa-chevron-up"></i>
+  </button>
+
+  <script>
+    // Navbar scroll effect
+    window.addEventListener('scroll', function () {
+      const navbar = document.getElementById('navbar');
+      const backToTop = document.getElementById('backToTop');
+      if (window.scrollY > 60) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+      if (window.scrollY > 500) {
+        backToTop.classList.add('visible');
+      } else {
+        backToTop.classList.remove('visible');
+      }
+    });
+
+    // Mobile menu
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      mobileMenu.classList.toggle('open');
+    });
+    function closeMobileMenu() {
+      hamburger.classList.remove('active');
+      mobileMenu.classList.remove('open');
+    }
+
+    // Back to top
+    document.getElementById('backToTop').addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // IntersectionObserver for scroll animations
+    const animates = document.querySelectorAll('.animate-in');
+    const observer = new IntersectionObserver(function (entries, obs) {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { root: null, threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    animates.forEach(el => observer.observe(el));
+
+    // Parallax-like hero glow on mouse move
+    const hero = document.getElementById('hero');
+    hero.addEventListener('mousemove', function (e) {
+      const rect = hero.getBoundingClientRect();
+      const x = ((e.clientX - rect.left) / rect.width - 0.5) * 30;
+      const y = ((e.clientY - rect.top) / rect.height - 0.5) * 20;
+      const img = hero.querySelector('.hero-image-frame img');
+      if (img) img.style.transform = `scale(1.03) translate(${x * 0.15}px, ${y * 0.15}px)`;
+    });
+    hero.addEventListener('mouseleave', function () {
+      const img = hero.querySelector('.hero-image-frame img');
+      if (img) img.style.transform = '';
+    });
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
